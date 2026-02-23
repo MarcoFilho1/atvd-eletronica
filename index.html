@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora BJT</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="card">
+        <h1>Calculadora BJT</h1>
+        
+        <form id="bjtForm">
+            <div class="input-group">
+                <label>Aproximação da Junção (Base-Emissor)</label>
+                <div class="button-group">
+                    <button type="button" class="btn-approx" data-approx="1">1ª (Ideal)</button>
+                    <button type="button" class="btn-approx active" data-approx="2">2ª (Prática)</button>
+                    <button type="button" class="btn-approx" data-approx="3">3ª (Linear)</button>
+                </div>
+            </div>
+
+            <div class="input-group hidden" id="grupoRi">
+                <label for="ri">Resistência Interna (ri - Ω)</label>
+                <input type="number" id="ri" placeholder="Ex: 10" step="any">
+            </div>
+            <div class="input-group">
+                <label>VBB (Tensão na Base - V)</label>
+                <div class="input-with-symbol">
+                    <img src="img/fonte_dc.jpeg" alt="Polaridade VBB" class="polarity-toggle" id="img-vbb-pol" data-polarity="1">
+                    <input type="number" id="vbb" placeholder="Ex: 5" step="any" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>VCC (Tensão no Coletor - V)</label>
+                <div class="input-with-symbol">
+                    <img src="img/fonte_dc.jpeg" alt="Polaridade VCC" class="polarity-toggle" id="img-vcc-pol" data-polarity="1">
+                    <input type="number" id="vcc" placeholder="Ex: 10" step="any" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="beta">Beta (Ganho hFE) - Opcional (OBS: O ganho é adimensional)</label>
+                <input type="number" id="beta" placeholder="Padrão: 100" step="any">
+            </div>
+
+            <div class="input-group">
+                <label for="rb">RB (Resistor da Base - Ω)</label>
+                <input type="number" id="rb" placeholder="Ex: 100000" step="any" required>
+            </div>
+
+            <div class="input-group">
+                <label for="rc">RC (Resistor do Coletor - Ω)</label>
+                <input type="number" id="rc" placeholder="Ex: 1000" step="any" required>
+            </div>
+
+            <button type="submit">Calcular Circuito</button>
+        </form>
+
+        <div id="resultadoBox" class="hidden">
+            <div id="regiaoBadge" class="badge"></div>
+            <p id="regiaoMotivo" class="motivo-texto"></p>
+            <div class="resultado-grid">
+                <div class="resultado-item">
+                    <span class="label">Corrente da Base (IB)</span>
+                    <span class="valor" id="ibTexto">-</span>
+                </div>
+                <div class="resultado-item">
+                    <span class="label">Corrente do Coletor (IC)</span>
+                    <span class="valor" id="icTexto">-</span>
+                </div>
+                <div class="resultado-item">
+                    <span class="label">Tensão (VCE)</span>
+                    <span class="valor" id="vceTexto">-</span>
+                </div>
+                <div class="resultado-item">
+                    <span class="label">Potência (PD)</span>
+                    <span class="valor" id="potTexto">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bjt_math.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
