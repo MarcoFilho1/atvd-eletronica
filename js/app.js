@@ -123,6 +123,15 @@ form.addEventListener('submit', function(event) {
     document.getElementById('icTexto').innerText = formatValue(resultado.ic, 'A');
     document.getElementById('vceTexto').innerText = formatValue(resultado.vce, 'V');
     document.getElementById('potTexto').innerText = formatValue(resultado.potencia, 'W');
+    document.getElementById('betaTexto').innerText = resultado.beta_real.toFixed(2);
+    const labelBeta = document.getElementById('labelBeta');
+    if (resultado.regiao === 'Saturação') {
+        labelBeta.innerText = 'Ganho Forçado (βsat)';
+        labelBeta.style.color = '#B91C1C'; 
+    } else {
+        labelBeta.innerText = 'Ganho Nominal (β)';
+        labelBeta.style.color = 'var(--text-muted)'; 
+    }
 
     const badge = document.getElementById('regiaoBadge');
     badge.innerText = `Região: ${resultado.regiao}`;
@@ -135,6 +144,15 @@ form.addEventListener('submit', function(event) {
         badge.style.backgroundColor = 'var(--status-saturacao)';
     } else {
         badge.style.backgroundColor = 'var(--status-corte)';
+    }
+
+    const avisoTeorico = document.getElementById('avisoTeorico');
+    if (resultado.teorico) {
+        document.getElementById('icTeoricoTexto').innerText = `IC Matemático: ${formatValue(resultado.ic_teorico, 'A')}`;
+        document.getElementById('vceTeoricoTexto').innerText = `VCE Matemático: ${formatValue(resultado.vce_teorico, 'V')}`;
+        avisoTeorico.classList.remove('hidden');
+    } else {
+        avisoTeorico.classList.add('hidden'); 
     }
 
     document.getElementById('resultadoBox').classList.remove('hidden');

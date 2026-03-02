@@ -61,6 +61,15 @@
         <div id="resultadoBox" class="hidden">
             <div id="regiaoBadge" class="badge"></div>
             <p id="regiaoMotivo" class="motivo-texto"></p>
+            <div id="avisoTeorico" class="hidden aviso-box">
+                <strong>⚠️ "Cálculo Teórico do Transistor" (ATENÇÃO!)</strong><br>
+                Se você aplicar a fórmula <em>IC = β × IB</em> ignorando o limite do circuito, os resultados matemáticos seriam:<br>
+                <ul class="lista-teorica">
+                    <li id="icTeoricoTexto"></li>
+                    <li id="vceTeoricoTexto"></li>
+                </ul>
+                <span class="dica-aviso">Isso é fisicamente impossível porque componentes passivos não geram tensões negativas.</span>
+            </div>
             <div class="resultado-grid">
                 <div class="resultado-item">
                     <span class="label">Corrente da Base (IB)</span>
@@ -77,6 +86,10 @@
                 <div class="resultado-item">
                     <span class="label">Potência (PD)</span>
                     <span class="valor" id="potTexto">-</span>
+                </div>
+                <div class="resultado-item">
+                    <span class="label" id="labelBeta">Ganho (β)</span>
+                    <span class="valor" id="betaTexto">-</span>
                 </div>
             </div>
         </div>

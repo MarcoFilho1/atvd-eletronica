@@ -242,3 +242,32 @@ button:hover {
     line-height: 1.4;
     padding: 0 10px;
 }
+
+.aviso-box {
+    background-color: #FEF2F2;
+    border-left: 4px solid #EF4444;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #991B1B;
+    line-height: 1.5;
+}
+
+.aviso-box strong {
+    color: #B91C1C;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.lista-teorica {
+    margin: 8px 0;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.dica-aviso {
+    font-size: 0.75rem;
+    font-style: italic;
+    opacity: 0.9;
+}
